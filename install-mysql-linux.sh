@@ -22,8 +22,9 @@ MYSQL_DATA=$MYSQL_ROOT/data
 SOCKET_DIR=/var/lib/mysql
 MYSQL_VERSION=mysql-8.0.16-linux-glibc2.12-x86_64
 
-yum install -y gcc
-yum install -y gcc-c++
+yum -y install gcc
+yum -y install gcc-c++
+yum -y install numactl
 
 cd /tmp
 wget https://dev.mysql.com/get/Downloads/MySQL-8.0/$MYSQL_VERSION.tar
