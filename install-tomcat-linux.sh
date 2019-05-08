@@ -1,17 +1,27 @@
+<<!
+ **********************************************************
+ * Author        : wangwei
+ * Email         : 2531868871@qq.com
+ * Last modified : 2019-03-31 17:52
+ * Filename      : install-tomcat-linux.sh
+ * Description   : 1.一键安装tomcat
+ * *******************************************************
+!
+
 #!/bin/sh
-#author wangwei
 
 MY_SOFTS=/usr/local/mysofts
-TOMCAT_VERSION=apache-tomcat-9.0.13
+TOMCAT_VERSION=9.0.13
+TOMCAT_NAME=apache-tomcat-9.0.13
 
 mkdir -p $MY_SOFTS
 
 cd /tmp
-wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
-tar -zxvf $TOMCAT_VERSION.tar.gz
+wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v$TOMCAT_VERSION/bin/TOMCAT_NAME.tar.gz 
+tar -zxvf $TOMCAT_NAME.tar.gz
 
 rm -rf $MY_SOFTS/tomcat9
-mv $TOMCAT_VERSION $MY_SOFTS/tomcat9
+mv $TOMCAT_NAME $MY_SOFTS/tomcat9
 
 cp $MY_SOFTS/tomcat9/bin/catalina.sh /etc/init.d/tomcat
 sed -i '2i#chkconfig:2345 10 90' /etc/init.d/tomcat
