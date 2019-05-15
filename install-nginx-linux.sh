@@ -13,12 +13,14 @@
 
 MY_SOFTS_DIR="/usr/local/mysofts"
 NGINX_VERSION=nginx-1.16.0
-OPENSSL_VERSION=openssl-1.1.0j
+OPENSSL_VERSION=openssl-1.1.1b
 
 yum install -y gcc gcc-c++
 yum install -y zlib*
 yum install -y pcre pcre-devel
 
+rm -rf $NGINX_VERSION $NGINX_VERSION.*
+rm -rf $OPENSSL_VERSION $OPENSSL_VERSION.*
 rm -rf /usr/bin/pod2man
 mkdir -p $MY_SOFTS_DIR
 
@@ -39,7 +41,6 @@ cat >> /etc/init.d/nginx <<EOF
 # Startup script for the nginx Web Server
 # chkconfig: - 85 15
 # description: nginx is a World Wide Web server. It is used to serve
-
 NGINX=${MY_SOFTS_DIR}/nginx/sbin/nginx
 start()
 {
